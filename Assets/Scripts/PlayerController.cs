@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
     private Rigidbody2D rigidBody;
+    private Animator animator; //MF
+    private bool isWalking = false; //MF
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +21,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isWalking = false; //MF
         if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
         {
+            isWalking = true; //MF
             transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            isWalking = true; //MF
             transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
         }
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
@@ -32,11 +37,15 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         Debug.DrawRay(transform.position, rayLength * Vector3.down, Color.white, 1, false);
+        animator.SetBool("isGrounded", IsGrounded()); //MF
+        animator.SetBool("isWalking", isWalking); //MF
+
     }
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); //MF 
     }
 
     void Jump()
