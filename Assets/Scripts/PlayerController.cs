@@ -41,8 +41,7 @@ public class PlayerController : MonoBehaviour
             //MF
             if (!isFacingRight)
             {
-                isFacingRight = true;
-                Debug.Log("Going Right");
+                Flip();
             }
             isWalking = true; //MF
             transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
@@ -52,8 +51,7 @@ public class PlayerController : MonoBehaviour
             //MF
             if (isFacingRight)
             {
-                isFacingRight = false;
-                Debug.Log("Going Left");
+                Flip();
             }
             isWalking = true; //MF
             transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
@@ -82,6 +80,7 @@ public class PlayerController : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
     void Jump()
     {
         if (IsGrounded())
