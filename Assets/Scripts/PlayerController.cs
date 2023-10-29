@@ -9,9 +9,12 @@ public class PlayerController : MonoBehaviour
     [Range(0.01f, 20.0f)] [SerializeField] private float jumpForce = 6.0f;
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
+    //public Vector3 theScale; //MF III 13 a)
     private Rigidbody2D rigidBody;
     private Animator animator; //MF
     private bool isWalking = false; //MF
+    //postaæ zawrócena w prawo = true, w lewo = false
+    private bool isFacingRight = true; //MF
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,23 @@ public class PlayerController : MonoBehaviour
         isWalking = false; //MF
         if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
         {
+            //MF
+            if (!isFacingRight)
+            {
+                isFacingRight = true;
+                Debug.Log("Going Right");
+            }
             isWalking = true; //MF
             transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            //MF
+            if (isFacingRight)
+            {
+                isFacingRight = false;
+                Debug.Log("Going Left");
+            }
             isWalking = true; //MF
             transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
         }
@@ -48,6 +63,14 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); //MF 
     }
 
+    //MF - ca³a metoda
+    void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 theScale = transform.localScale; //???
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
     void Jump()
     {
         if(IsGrounded())
