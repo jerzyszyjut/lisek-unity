@@ -27,11 +27,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Bonus"))
         {
-            score += 1;
-            Debug.Log("Score: " + score);
             other.gameObject.SetActive(false);
+            Debug.Log("Score: " + score);
+            score += 1;
         }
     }
+
     // Update is called once per frame
     void Update()
     {
