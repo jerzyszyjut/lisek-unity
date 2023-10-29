@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             score += 1;
+            Debug.Log("Picked up cherry! Current score:" + score);
+        }
+        if (other.CompareTag("Finish line"))
+        {
+            other.gameObject.SetActive(false);
+            Debug.Log("Player reached the end of the level!");
         }
     }
 
