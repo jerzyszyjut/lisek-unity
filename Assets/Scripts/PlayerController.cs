@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
     //public Vector3 theScale; //MF III 13 a)
+    public int score = 0;
     private Rigidbody2D rigidBody;
     private Animator animator; //MF
     private bool isWalking = false; //MF
@@ -21,6 +22,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //MF
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bonus"))
+        {
+            score += 1;
+            Debug.Log("Score: " + score);
+            other.gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
