@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4610093499252444314}
   - component: {fileID: 1764262041898442050}
-  - component: {fileID: 6285255815533006294}
+  - component: {fileID: -1334756315770745169}
+  - component: {fileID: 9154069780463360398}
   m_Layer: 6
-  m_Name: platform-long
+  m_Name: moving-platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +86,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6285255815533006294
+--- !u!114 &-1334756315770745169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510139867958848181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c35d1842310ff40bead8435a1d6ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  offset: 2
+  movementAxis: 0
+--- !u!61 &9154069780463360398
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
