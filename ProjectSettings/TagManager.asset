@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Bonus
   - Finish line
+  - Enemy
+  - Key
+  - Lifes
+  - Fall level
   layers:
   - Default
   - TransparentFX
