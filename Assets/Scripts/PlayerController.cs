@@ -99,38 +99,44 @@ public class PlayerController : MonoBehaviour
     {
         isWalking = false;
 
-        if(lifes > 0)
+        if (GameManager.instance.currentGameState == GameState.GS_GAME)
         {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            if (lifes > 0)
             {
-                if (facingDirection == FacingDirection.Left)
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
-                    Flip();
+                    if (facingDirection == FacingDirection.Left)
+                    {
+                        Flip();
+                    }
+                    isWalking = true;
+                    transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
                 }
-                isWalking = true;
-                transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
+
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+                {
+                    if (facingDirection == FacingDirection.Right)
+                    {
+                        Flip();
+                    }
+                    isWalking = true;
+                    transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
+                }
+
+                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+                {
+                    Jump();
+                }
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                if (facingDirection == FacingDirection.Right)
-                {
-                    Flip();
-                }
-                isWalking = true;
-                transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
-            }
-
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
+            
         }
 
-        if(rigidBody.velocity.y < 0.0f)
+        if (rigidBody.velocity.y < -0.5f)
         {
             isFalling = true;
-        } else
+        }
+        else
         {
             isFalling = false;
         }
