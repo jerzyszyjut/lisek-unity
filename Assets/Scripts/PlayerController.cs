@@ -81,6 +81,18 @@ public class PlayerController : MonoBehaviour
             Die();
             Debug.Log($"You have fallen and died!!! Current lives: {lifes}");
         }
+        if (other.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(null);
+        }
     }
 
     void Update()
@@ -123,7 +135,6 @@ public class PlayerController : MonoBehaviour
             isFalling = false;
         }
 
-        //Debug.DrawRay(transform.position, rayLength * Vector3.down, Color.white, 1, false);
         animator.SetBool("isGrounded", IsGrounded());
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isFalling", isFalling);
@@ -173,6 +184,5 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Game over!");
         }
-
     }
 }
