@@ -1,0 +1,4 @@
+repository "2D Platformer JSzyjut MFydrych ABerkowska@JerzySzyjutStudia@cloud"
+  path "/"
+    smartbranch "/main/lab4" 
+     
