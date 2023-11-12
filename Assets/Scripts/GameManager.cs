@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+using TMPro;
 
 public enum GameState
 {
@@ -11,50 +14,73 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     public GameState currentGameState = GameState.GS_PAUSEMENU;
+    public Canvas ingameCanvas;
+    public TMP_Text scoreText;
+    public Image[] keysTab;
     public static GameManager instance;
+    private int score = 0;
+    private int keysFound = 0;
 
     void Awake()
     { 
         instance = this;
+        foreach (Image key in keysTab)
+        {
+            key.color = Color.gray;
+        }
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape)) 
+        if (Input.GetKeyUp(KeyCode.Escape)) 
         { 
             if(currentGameState == GameState.GS_PAUSEMENU)
             {
-                currentGameState = GameState.GS_GAME;
+                InGame();
             }
             else if (currentGameState == GameState.GS_GAME)
             {
-                currentGameState = GameState.GS_PAUSEMENU;
+                PauseMenu();
             }
         }
     }
 
-    void SetGameState(GameState newGameState)
+    public void SetGameState(GameState newGameState)
     {
         currentGameState = newGameState;
+
+        ingameCanvas.enabled = currentGameState == GameState.GS_GAME;
     }
 
-    void PauseMenu()
+    public void PauseMenu()
     {
         SetGameState(GameState.GS_PAUSEMENU);
     }
 
-    void InGame()
+    public void InGame()
     {
         SetGameState(GameState.GS_GAME);
     }
 
-    void LevelCompleted()
+    public void LevelCompleted()
     {
         SetGameState(GameState.GS_LEVELCOMPLETED);
     }
 
-    void GameOver()
+    public void GameOver()
     {
         SetGameState(GameState.GS_GAME_OVER);
+    }
+
+    public void AddPoints(int points)
+    {
+        score += points;
+        scoreText.text = score.ToString();
+    }
+
+    public void AddKey(Color keyColor)
+    {
+        keysTab[keysFound].color = keyColor;
+        keysFound += 1;
     }
 }

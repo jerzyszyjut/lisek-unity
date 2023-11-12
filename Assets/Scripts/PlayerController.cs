@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 enum FacingDirection
 {
@@ -18,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private int keysFound = 0;
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
-    public int score = 0;
     private Rigidbody2D rigidBody;
     private Animator animator;
     private bool isWalking = false;
@@ -36,8 +33,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Bonus"))
         {
             other.gameObject.SetActive(false);
-            score += 1;
-            Debug.Log("Picked up cherry! Current score: " + score);
+            GameManager.instance.AddPoints(1);
         }
         if (other.CompareTag("Finish line"))
         {
@@ -55,20 +51,17 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.y > other.gameObject.transform.position.y)
             {
-                score += 1;
-                Debug.Log("Killed an enemy! Current score: " + score);
+                GameManager.instance.AddPoints(1);
             }
             else
             {
                 Die();
-                Debug.Log("Died from enemy! Current lives: " + lifes);
             }
         }
         if (other.CompareTag("Key"))
-        {
+        { 
             other.gameObject.SetActive(false);
-            keysFound += 1;
-            Debug.Log($"Found key! Current number of keys found {keysFound}");
+            GameManager.instance.AddKey(other.gameObject.GetComponent<SpriteRenderer>().color);
         }        
         if (other.CompareTag("Lifes"))
         {
