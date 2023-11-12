@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState = GameState.GS_PAUSEMENU;
     public Canvas ingameCanvas;
     public TMP_Text scoreText;
+    public TMP_Text livesText;
     public Image[] keysTab;
     public static GameManager instance;
     private int score = 0;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         {
             key.color = Color.gray;
         }
+        SetLives(3); // TODO: Set lives from player's contoller
     }
 
     void Update()
@@ -64,7 +66,12 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        SetGameState(GameState.GS_LEVELCOMPLETED);
+        if (keysFound == keysTab.Length) {
+             SetGameState(GameState.GS_LEVELCOMPLETED);
+        }
+        else {
+            Debug.Log($"You need to find {keysTab.Length - keysFound} more keys!");
+        }
     }
 
     public void GameOver()
@@ -76,6 +83,11 @@ public class GameManager : MonoBehaviour
     {
         score += points;
         scoreText.text = score.ToString();
+    }
+
+    public void SetLives(int lives)
+    {
+        livesText.text = lives.ToString();
     }
 
     public void AddKey(Color keyColor)

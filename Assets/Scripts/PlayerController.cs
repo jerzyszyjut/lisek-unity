@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement parameters")]
     [Range(0.01f, 20.0f)][SerializeField] private float moveSpeed = 0.1f;
     [Range(0.01f, 20.0f)][SerializeField] private float jumpForce = 6.0f;
-    [SerializeField] private int lifes = 3;
+    [SerializeField] private int lives = 3;
     [SerializeField] private int keysNumber = 3;
     private int keysFound = 0;
     private readonly float rayLength = 1.0f;
@@ -35,17 +35,9 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             GameManager.instance.AddPoints(1);
         }
-        if (other.CompareTag("Finish line"))
+        if (other.CompareTag("Finish"))
         {
-            if(keysFound >= keysNumber)
-            {
-                other.gameObject.SetActive(false);
-                Debug.Log("Player reached the end of the level!");
-            }
-            else
-            {
-                Debug.Log($"You need to find {keysNumber - keysFound} more keys!");
-            }
+            GameManager.instance.LevelCompleted();
         }
         if (other.CompareTag("Enemy"))
         {
@@ -66,13 +58,14 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Lifes"))
         {
             other.gameObject.SetActive(false);
-            lifes += 1;
-            Debug.Log($"Found one up! Current lives: {lifes}");
+            lives += 1;
+            GameManager.instance.SetLives(lives);
+            Debug.Log($"Found one up! Current lives: {lives}");
         }
         if (other.CompareTag("Fall level"))
         {
             Die();
-            Debug.Log($"You have fallen and died!!! Current lives: {lifes}");
+            Debug.Log($"You have fallen and died!!! Current lives: {lives}");
         }
         if (other.CompareTag("MovingPlatform"))
         {
@@ -94,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.instance.currentGameState == GameState.GS_GAME)
         {
-            if (lifes > 0)
+            if (lives > 0)
             {
                 if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
@@ -178,8 +171,9 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = initialPosition;
         rigidBody.velocity = Vector3.zero;
-        lifes -= 1;
-        if(lifes <= 0)
+        lives -= 1;
+        GameManager.instance.SetLives(lives);
+        if(lives <= 0)
         {
             Debug.Log("Game over!");
         }
