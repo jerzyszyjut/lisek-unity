@@ -99,6 +99,12 @@ public class GameManager : MonoBehaviour
         score += points;
     }
 
+    public void IncrementLives()
+    {
+        if (lives >= 0 && lives < livesTab.Length) livesTab[lives].color = Color.white;
+        if (lives > 0 && lives < livesTab.Length) lives += 1;
+    }
+
     public void DecrementLives()
     {
         lives -= 1;
