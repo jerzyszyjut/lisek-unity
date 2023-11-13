@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Lifes"))
         {
             other.gameObject.SetActive(false);
-            GameManager.instance.IncrementLives();
         }
         if (other.CompareTag("Fall level"))
         {

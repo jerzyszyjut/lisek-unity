@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState = GameState.GS_PAUSEMENU;
     public Canvas ingameCanvas;
     public TMP_Text scoreText;
-    public TMP_Text livesText;
     public TMP_Text enemiesDefeatedText;
     public TMP_Text timeCounterText;
     public Image[] keysTab;
+    public Image[] livesTab;
     public static GameManager instance;
     private int score = 0;
     private int keysFound = 0;
-    private int lives = 3;
+    private int lives;
     private int enemiesDefeated = 0;
     private float timer = 0;
 
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
             key.color = Color.gray;
         }
         UpdateCounters();
+        lives = livesTab.Length;
     }
 
     void Update()
@@ -98,14 +99,10 @@ public class GameManager : MonoBehaviour
         score += points;
     }
 
-    public void IncrementLives()
-    {
-        lives += 1;
-    }
-
     public void DecrementLives()
     {
         lives -= 1;
+        if (lives >= 0 && lives <= livesTab.Length) livesTab[lives].color = Color.gray;
 
         if(lives <= 0)
         {
@@ -128,7 +125,6 @@ public class GameManager : MonoBehaviour
     public void UpdateCounters()
     {
         scoreText.text = score.ToString();
-        livesText.text = lives.ToString();
         enemiesDefeatedText.text = enemiesDefeated.ToString();
         float minutes = timer / 60.0f, seconds = timer % 60.0f;
         timeCounterText.text = string.Format("{0:00}:{1:00}", Math.Floor(minutes), Math.Floor(seconds));
