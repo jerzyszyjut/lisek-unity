@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using TMPro;
+using System;
+using System.Text;
 
 public enum GameState
 {
@@ -17,10 +18,15 @@ public class GameManager : MonoBehaviour
     public Canvas ingameCanvas;
     public TMP_Text scoreText;
     public TMP_Text livesText;
+    public TMP_Text enemiesDefeatedText;
+    public TMP_Text timeCounterText;
     public Image[] keysTab;
     public static GameManager instance;
     private int score = 0;
     private int keysFound = 0;
+    private int lives = 3;
+    private int enemiesDefeated = 0;
+    private float timer = 0;
 
     void Awake()
     { 
@@ -29,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             key.color = Color.gray;
         }
-        SetLives(3); // TODO: Set lives from player's contoller
+        UpdateCounters();
     }
 
     void Update()
@@ -45,6 +51,12 @@ public class GameManager : MonoBehaviour
                 PauseMenu();
             }
         }
+
+        if (currentGameState == GameState.GS_GAME)
+        {
+            timer += Time.deltaTime;
+        }
+        UpdateCounters();
     }
 
     public void SetGameState(GameState newGameState)
@@ -66,10 +78,12 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        if (keysFound == keysTab.Length) {
+        if (keysFound == keysTab.Length)
+        {
              SetGameState(GameState.GS_LEVELCOMPLETED);
         }
-        else {
+        else
+        {
             Debug.Log($"You need to find {keysTab.Length - keysFound} more keys!");
         }
     }
@@ -82,17 +96,41 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int points)
     {
         score += points;
-        scoreText.text = score.ToString();
     }
 
-    public void SetLives(int lives)
+    public void IncrementLives()
     {
-        livesText.text = lives.ToString();
+        lives += 1;
+    }
+
+    public void DecrementLives()
+    {
+        lives -= 1;
+
+        if(lives <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void IncrementEnemiesDefeated()
+    {
+        enemiesDefeated += 1;
+        AddPoints(1);
     }
 
     public void AddKey(Color keyColor)
     {
         keysTab[keysFound].color = keyColor;
         keysFound += 1;
+    }
+
+    public void UpdateCounters()
+    {
+        scoreText.text = score.ToString();
+        livesText.text = lives.ToString();
+        enemiesDefeatedText.text = enemiesDefeated.ToString();
+        float minutes = timer / 60.0f, seconds = timer % 60.0f;
+        timeCounterText.text = string.Format("{0:00}:{1:00}", Math.Floor(minutes), Math.Floor(seconds));
     }
 }

@@ -11,9 +11,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement parameters")]
     [Range(0.01f, 20.0f)][SerializeField] private float moveSpeed = 0.1f;
     [Range(0.01f, 20.0f)][SerializeField] private float jumpForce = 6.0f;
-    [SerializeField] private int lives = 3;
-    [SerializeField] private int keysNumber = 3;
-    private int keysFound = 0;
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
     private Rigidbody2D rigidBody;
@@ -43,7 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.y > other.gameObject.transform.position.y)
             {
-                GameManager.instance.AddPoints(1);
+                GameManager.instance.IncrementEnemiesDefeated();
             }
             else
             {
@@ -58,14 +55,11 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Lifes"))
         {
             other.gameObject.SetActive(false);
-            lives += 1;
-            GameManager.instance.SetLives(lives);
-            Debug.Log($"Found one up! Current lives: {lives}");
+            GameManager.instance.IncrementLives();
         }
         if (other.CompareTag("Fall level"))
         {
             Die();
-            Debug.Log($"You have fallen and died!!! Current lives: {lives}");
         }
         if (other.CompareTag("MovingPlatform"))
         {
@@ -87,35 +81,31 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.instance.currentGameState == GameState.GS_GAME)
         {
-            if (lives > 0)
+
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+                if (facingDirection == FacingDirection.Left)
                 {
-                    if (facingDirection == FacingDirection.Left)
-                    {
-                        Flip();
-                    }
-                    isWalking = true;
-                    transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
+                    Flip();
                 }
-
-                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-                {
-                    if (facingDirection == FacingDirection.Right)
-                    {
-                        Flip();
-                    }
-                    isWalking = true;
-                    transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
-                }
-
-                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-                {
-                    Jump();
-                }
+                isWalking = true;
+                transform.Translate(moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
             }
 
-            
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                if (facingDirection == FacingDirection.Right)
+                {
+                    Flip();
+                }
+                isWalking = true;
+                transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
+            }
+
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
         }
 
         if (rigidBody.velocity.y < -0.5f)
@@ -171,11 +161,6 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = initialPosition;
         rigidBody.velocity = Vector3.zero;
-        lives -= 1;
-        GameManager.instance.SetLives(lives);
-        if(lives <= 0)
-        {
-            Debug.Log("Game over!");
-        }
+        GameManager.instance.DecrementLives();
     }
 }
