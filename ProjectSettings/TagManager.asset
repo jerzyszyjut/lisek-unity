@@ -10,6 +10,7 @@ TagManager:
   - Lifes
   - Fall level
   - MovingPlatform
+  - Exit
   layers:
   - Default
   - TransparentFX

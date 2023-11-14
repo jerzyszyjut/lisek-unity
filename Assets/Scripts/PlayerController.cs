@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement parameters")]
     [Range(0.01f, 20.0f)][SerializeField] private float moveSpeed = 0.1f;
     [Range(0.01f, 20.0f)][SerializeField] private float jumpForce = 6.0f;
+    [SerializeField] private AudioClip bonusSound;
+    [SerializeField] private AudioClip killEnemySound;
+    [SerializeField] private AudioClip keySound;
+    private AudioSource source;
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
     private Rigidbody2D rigidBody;
@@ -19,6 +23,13 @@ public class PlayerController : MonoBehaviour
     private bool isFalling = false;
     private FacingDirection facingDirection = FacingDirection.Right;
     Vector3 initialPosition;
+
+    private void Awake()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
+    }
 
     void Start()
     { 
@@ -31,9 +42,11 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             GameManager.instance.AddPoints(1);
+            source.PlayOneShot(bonusSound, AudioListener.volume);
         }
-        if (other.CompareTag("Finish"))
+        if (other.CompareTag("Exit"))
         {
+            GameManager.instance.AddPoints(GameManager.instance.GetLives() * 100);
             GameManager.instance.LevelCompleted();
         }
         if (other.CompareTag("Enemy"))
@@ -41,6 +54,7 @@ public class PlayerController : MonoBehaviour
             if (transform.position.y > other.gameObject.transform.position.y)
             {
                 GameManager.instance.IncrementEnemiesDefeated();
+                source.PlayOneShot(killEnemySound, AudioListener.volume);
             }
             else
             {
@@ -51,6 +65,7 @@ public class PlayerController : MonoBehaviour
         { 
             other.gameObject.SetActive(false);
             GameManager.instance.AddKey(other.gameObject.GetComponent<SpriteRenderer>().color);
+            source.PlayOneShot(keySound, AudioListener.volume);
         }        
         if (other.CompareTag("Lifes"))
         {
@@ -120,12 +135,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isGrounded", IsGrounded());
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isFalling", isFalling);
-    }
-
-    private void Awake()
-    {
-        rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     void Flip()
