@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 enum FacingDirection
 {
@@ -13,12 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement parameters")]
     [Range(0.01f, 20.0f)][SerializeField] private float moveSpeed = 0.1f;
     [Range(0.01f, 20.0f)][SerializeField] private float jumpForce = 6.0f;
-    [SerializeField] private int lifes = 3;
-    [SerializeField] private int keysNumber = 3;
-    private int keysFound = 0;
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
-    public int score = 0;
     private Rigidbody2D rigidBody;
     private Animator animator;
     private bool isWalking = false;
@@ -36,50 +30,48 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Bonus"))
         {
             other.gameObject.SetActive(false);
-            score += 1;
-            Debug.Log("Picked up cherry! Current score: " + score);
+            GameManager.instance.AddPoints(1);
         }
-        if (other.CompareTag("Finish line"))
+        if (other.CompareTag("Finish"))
         {
-            if(keysFound >= keysNumber)
-            {
-                other.gameObject.SetActive(false);
-                Debug.Log("Player reached the end of the level!");
-            }
-            else
-            {
-                Debug.Log($"You need to find {keysNumber - keysFound} more keys!");
-            }
+            GameManager.instance.LevelCompleted();
         }
         if (other.CompareTag("Enemy"))
         {
             if (transform.position.y > other.gameObject.transform.position.y)
             {
-                score += 1;
-                Debug.Log("Killed an enemy! Current score: " + score);
+                GameManager.instance.IncrementEnemiesDefeated();
             }
             else
             {
                 Die();
-                Debug.Log("Died from enemy! Current lives: " + lifes);
             }
         }
         if (other.CompareTag("Key"))
-        {
+        { 
             other.gameObject.SetActive(false);
-            keysFound += 1;
-            Debug.Log($"Found key! Current number of keys found {keysFound}");
+            GameManager.instance.AddKey(other.gameObject.GetComponent<SpriteRenderer>().color);
         }        
         if (other.CompareTag("Lifes"))
         {
             other.gameObject.SetActive(false);
-            lifes += 1;
-            Debug.Log($"Found one up! Current lives: {lifes}");
+            GameManager.instance.IncrementLives();
         }
         if (other.CompareTag("Fall level"))
         {
             Die();
-            Debug.Log($"You have fallen and died!!! Current lives: {lifes}");
+        }
+        if (other.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(null);
         }
     }
 
@@ -87,8 +79,9 @@ public class PlayerController : MonoBehaviour
     {
         isWalking = false;
 
-        if(lifes > 0)
+        if (GameManager.instance.currentGameState == GameState.GS_GAME)
         {
+
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 if (facingDirection == FacingDirection.Left)
@@ -115,15 +108,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(rigidBody.velocity.y < 0.0f)
+        if (rigidBody.velocity.y < -0.5f)
         {
             isFalling = true;
-        } else
+        }
+        else
         {
             isFalling = false;
         }
 
-        //Debug.DrawRay(transform.position, rayLength * Vector3.down, Color.white, 1, false);
         animator.SetBool("isGrounded", IsGrounded());
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isFalling", isFalling);
@@ -168,11 +161,6 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = initialPosition;
         rigidBody.velocity = Vector3.zero;
-        lifes -= 1;
-        if(lifes <= 0)
-        {
-            Debug.Log("Game over!");
-        }
-
+        GameManager.instance.DecrementLives();
     }
 }
