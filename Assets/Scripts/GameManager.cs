@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using System.Text;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameState
 {
@@ -139,5 +140,21 @@ public class GameManager : MonoBehaviour
         enemiesDefeatedText.text = enemiesDefeated.ToString();
         float minutes = timer / 60.0f, seconds = timer % 60.0f;
         timeCounterText.text = string.Format("{0:00}:{1:00}", Math.Floor(minutes), Math.Floor(seconds));
+    }
+
+    public void OnResumeClick()
+    {
+        InGame();
+    }
+    public void OnRestartClick()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnReturnToMainMenuButtonClicked()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
