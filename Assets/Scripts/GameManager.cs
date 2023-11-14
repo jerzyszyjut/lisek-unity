@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 {
     public GameState currentGameState = GameState.GS_PAUSEMENU;
     public Canvas ingameCanvas;
+    public Canvas pauseMenuCanvas;
     public TMP_Text scoreText;
     public TMP_Text enemiesDefeatedText;
     public TMP_Text timeCounterText;
@@ -29,7 +30,8 @@ public class GameManager : MonoBehaviour
     private float timer = 0;
 
     void Awake()
-    { 
+    {
+        InGame();
         instance = this;
         foreach (Image key in keysTab)
         {
@@ -65,16 +67,19 @@ public class GameManager : MonoBehaviour
         currentGameState = newGameState;
 
         ingameCanvas.enabled = currentGameState == GameState.GS_GAME;
+        pauseMenuCanvas.enabled = currentGameState == GameState.GS_PAUSEMENU;   
     }
 
     public void PauseMenu()
     {
         SetGameState(GameState.GS_PAUSEMENU);
+        Time.timeScale = 0.0f;
     }
 
     public void InGame()
     {
         SetGameState(GameState.GS_GAME);
+        Time.timeScale = 1.0f;
     }
 
     public void LevelCompleted()
