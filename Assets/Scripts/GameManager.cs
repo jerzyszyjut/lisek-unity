@@ -2,23 +2,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using System.Text;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameState
 {
     GS_PAUSEMENU,
     GS_GAME,
     GS_LEVELCOMPLETED,
-    GS_GAME_OVER
+    GS_GAME_OVER,
+    GS_OPTIONS,
 }
 
 public class GameManager : MonoBehaviour
 {
     public GameState currentGameState = GameState.GS_PAUSEMENU;
     public Canvas ingameCanvas;
+    public Canvas pauseMenuCanvas;
+    public Canvas levelCompletedMenuCanvas;
+    public Canvas optionsMenuCanvas;
     public TMP_Text scoreText;
     public TMP_Text enemiesDefeatedText;
     public TMP_Text timeCounterText;
+    public TMP_Text levelCompletedScoreText;
+    public TMP_Text levelCompletedHighScoreText;
     public Image[] keysTab;
     public Image[] livesTab;
     public static GameManager instance;
@@ -27,9 +34,11 @@ public class GameManager : MonoBehaviour
     private int lives;
     private int enemiesDefeated = 0;
     private float timer = 0;
+    private const string keyHighScore = "HighScoreLevel1";
 
     void Awake()
-    { 
+    {
+        InGame();
         instance = this;
         foreach (Image key in keysTab)
         {
@@ -37,6 +46,10 @@ public class GameManager : MonoBehaviour
         }
         UpdateCounters();
         lives = livesTab.Length;
+        if(!PlayerPrefs.HasKey(keyHighScore))
+        {
+            PlayerPrefs.SetInt(keyHighScore, 0);
+        }
     }
 
     void Update()
@@ -65,16 +78,37 @@ public class GameManager : MonoBehaviour
         currentGameState = newGameState;
 
         ingameCanvas.enabled = currentGameState == GameState.GS_GAME;
+        pauseMenuCanvas.enabled = currentGameState == GameState.GS_PAUSEMENU;   
+        levelCompletedMenuCanvas.enabled = currentGameState == GameState.GS_LEVELCOMPLETED;
+        optionsMenuCanvas.enabled = currentGameState == GameState.GS_OPTIONS;   
+
+        if(currentGameState == GameState.GS_LEVELCOMPLETED)
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            if(currentScene.name == "Level1")
+            {
+                int highScore = PlayerPrefs.GetInt(keyHighScore);
+                if (highScore < score)
+                {
+                    highScore = score;
+                    PlayerPrefs.SetInt(keyHighScore, highScore);
+                }
+                levelCompletedScoreText.text = string.Format("{0:0000}", score);
+                levelCompletedHighScoreText.text = string.Format("{0:0000}", highScore);
+            }
+        }
     }
 
     public void PauseMenu()
     {
         SetGameState(GameState.GS_PAUSEMENU);
+        Time.timeScale = 0.0f;
     }
 
     public void InGame()
     {
         SetGameState(GameState.GS_GAME);
+        Time.timeScale = 1.0f;
     }
 
     public void LevelCompleted()
@@ -92,6 +126,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         SetGameState(GameState.GS_GAME_OVER);
+    }
+
+    public void Options()
+    {
+        SetGameState(GameState.GS_OPTIONS);
+        Time.timeScale = 0.0f;
     }
 
     public void AddPoints(int points)
@@ -135,4 +175,39 @@ public class GameManager : MonoBehaviour
         float minutes = timer / 60.0f, seconds = timer % 60.0f;
         timeCounterText.text = string.Format("{0:00}:{1:00}", Math.Floor(minutes), Math.Floor(seconds));
     }
+
+    public void OnResumeClick()
+    {
+        InGame();
+    }
+    public void OnRestartClick()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnReturnToMainMenuButtonClicked()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public int GetLives() { return lives; }
+
+    public void IncreaseQualityLevel()
+    {
+        QualitySettings.IncreaseLevel();
+        Debug.Log(QualitySettings.names[QualitySettings.GetQualityLevel()]);
+    }
+
+    public void DecreaseQualityLevel()
+    {
+        QualitySettings.DecreaseLevel();
+        Debug.Log(QualitySettings.names[QualitySettings.GetQualityLevel()]);
+    }
+
+    public void SetVolume (float vol)
+    {
+        AudioListener.volume = vol;
+    }    
 }
