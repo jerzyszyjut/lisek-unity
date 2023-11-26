@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum MovementAxis
+public enum MovementAxis
 {
     X, 
     Y
@@ -8,10 +8,10 @@ enum MovementAxis
 
 public class MovingPlatformController : MonoBehaviour
 {
-    [SerializeField] private float speed = 2.0f;
-    [SerializeField] private float minOffset = 2.0f;
-    [SerializeField] private float maxOffset = 2.0f;
-    [SerializeField] private MovementAxis movementAxis = MovementAxis.X;
+    [SerializeField] public float speed = 2.0f;
+    [SerializeField] public float minOffset = 2.0f;
+    [SerializeField] public float maxOffset = 2.0f;
+    [SerializeField] public MovementAxis movementAxis = MovementAxis.X;
     private Vector3 initialPosition;
     private bool movingTowardsPositive = false;
 
