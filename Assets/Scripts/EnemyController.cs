@@ -6,6 +6,9 @@ public class EnemyController : MonoBehaviour
     [Header("Movement parameters")]
     [Range(0.01f, 20.0f)][SerializeField] private float moveSpeed = 0.1f;
     [SerializeField] private float moveRange = 1.0f;
+    [SerializeField] private float hitpoints = 100.0f;
+    [SerializeField] HealthBarController healthbar;
+    private float currentHitpoints = 100.0f;
     private Animator animator;
     private FacingDirection facingDirection = FacingDirection.Left;
     private float startPositionX;
@@ -58,8 +61,21 @@ public class EnemyController : MonoBehaviour
         }
         if(other.CompareTag("Bullet"))
         {
-            animator.SetBool("isDead", true);
-            StartCoroutine(KillOnAnimationEnd());
+            currentHitpoints -= 40.0f;
+
+            if (currentHitpoints <= 0.0f)
+            {
+                animator.SetBool("isDead", true);
+                StartCoroutine(KillOnAnimationEnd());
+                GameManager.instance.IncrementEnemiesDefeated();
+                healthbar.UpdateHealthBar(0.0f);
+            }
+            else
+            {
+                healthbar.UpdateHealthBar(currentHitpoints / hitpoints);
+            }
+            
+            
             Destroy(other);
         }
     }
@@ -84,5 +100,8 @@ public class EnemyController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        Vector3 healthbarScale = healthbar.slider.transform.localScale;
+        healthbarScale.x *= -1;
+        healthbar.slider.transform.localScale = healthbarScale;
     }
 }

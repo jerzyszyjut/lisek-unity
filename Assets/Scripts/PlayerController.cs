@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Key"))
         { 
             other.gameObject.SetActive(false);
-            GameManager.instance.AddKey(other.gameObject.GetComponent<SpriteRenderer>().color);
+            GameManager.instance.AddKey(other.gameObject.GetComponent<SpriteRenderer>().sprite);
             source.PlayOneShot(keySound, AudioListener.volume);
         }        
         if (other.CompareTag("Lifes"))

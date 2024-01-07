@@ -15,8 +15,13 @@ public class BulletController : MonoBehaviour
     private void Update()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle - 225.0f);
+        float angleZ = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg, angleY = 0.0f;
+        if(angleZ >= 90.0f && angleZ <= 270.0f)
+        {
+            angleZ -= 180.0f;
+            angleY = 180.0f;
+        }
+        transform.rotation = Quaternion.Euler(0.0f, angleY, angleZ);
 
         if(Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer.value) 
             || Physics2D.Raycast(transform.position, Vector2.up, 0.1f, groundLayer.value)
