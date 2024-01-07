@@ -74,9 +74,6 @@ public class EnemyController : MonoBehaviour
             {
                 healthbar.UpdateHealthBar(currentHitpoints / hitpoints);
             }
-            
-            
-            Destroy(other);
         }
     }
 
