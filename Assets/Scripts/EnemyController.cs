@@ -56,6 +56,12 @@ public class EnemyController : MonoBehaviour
                 StartCoroutine(KillOnAnimationEnd());
             }
         }
+        if(other.CompareTag("Bullet"))
+        {
+            animator.SetBool("isDead", true);
+            StartCoroutine(KillOnAnimationEnd());
+            Destroy(other);
+        }
     }
 
     IEnumerator KillOnAnimationEnd()

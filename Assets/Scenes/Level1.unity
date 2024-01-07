@@ -313,6 +313,7 @@ MonoBehaviour:
   - {fileID: 1864761730}
   - {fileID: 179336987}
   - {fileID: 1101289799}
+  cursorTexture: {fileID: 2800000, guid: 43f05acd28803ba4697cd1460e48e194, type: 3}
 --- !u!1 &50902033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1202,7 @@ Transform:
   m_GameObject: {fileID: 341166861}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.51, y: -7.14, z: -2}
+  m_LocalPosition: {x: -33.51, y: -7.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1247,7 +1248,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a225befe4953547da8c4133e5d585029, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2965,7 +2966,7 @@ Transform:
   m_GameObject: {fileID: 693027472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.345997, y: 3.5810483, z: -1}
+  m_LocalPosition: {x: 43.345997, y: 3.5810483, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4334,8 +4335,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1587789617
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -11251,7 +11252,7 @@ Transform:
   m_GameObject: {fileID: 1634359871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.42, y: -7.16, z: 5}
+  m_LocalPosition: {x: -45.42, y: -7.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11297,7 +11298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a225befe4953547da8c4133e5d585029, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14671,6 +14672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpForce: 7
+  bulletPrefab: {fileID: 1180470834541397202, guid: 0f2829f52ad2fe0418f47fd114f612d7, type: 3}
+  shootSound: {fileID: 0}
   bonusSound: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   killEnemySound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   keySound: {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}

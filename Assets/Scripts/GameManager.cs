@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public Image[] keysTab;
     public Image[] livesTab;
     public static GameManager instance;
+    [SerializeField] private Texture2D cursorTexture;
+    private Vector2 cursorHotsport;
     private int score = 0;
     private int keysFound = 0;
     private int lives;
@@ -82,7 +84,16 @@ public class GameManager : MonoBehaviour
         levelCompletedMenuCanvas.enabled = currentGameState == GameState.GS_LEVELCOMPLETED;
         optionsMenuCanvas.enabled = currentGameState == GameState.GS_OPTIONS;   
 
-        if(currentGameState == GameState.GS_LEVELCOMPLETED)
+        if (currentGameState == GameState.GS_GAME)
+        {
+            Cursor.SetCursor(cursorTexture, cursorHotsport, CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+
+        if (currentGameState == GameState.GS_LEVELCOMPLETED)
         {
             Scene currentScene = SceneManager.GetActiveScene();
             if(currentScene.name == "Level1")
@@ -107,6 +118,7 @@ public class GameManager : MonoBehaviour
 
     public void InGame()
     {
+        cursorHotsport = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         SetGameState(GameState.GS_GAME);
         Time.timeScale = 1.0f;
     }

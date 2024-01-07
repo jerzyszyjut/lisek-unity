@@ -11,6 +11,7 @@ TagManager:
   - Fall level
   - MovingPlatform
   - Exit
+  - Bullet
   layers:
   - Default
   - TransparentFX
