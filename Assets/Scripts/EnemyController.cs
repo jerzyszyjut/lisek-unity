@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private Animator animator;
     private FacingDirection facingDirection = FacingDirection.Left;
     private float startPositionX;
+    private bool isDead = false;
 
     void Start()
     {
@@ -51,28 +52,33 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!isDead) // Sprawdzenie, czy przeciwnik nie jest ju¿ martwy
         {
-            if (transform.position.y < other.gameObject.transform.position.y)
+            if (other.CompareTag("Player"))
             {
-                animator.SetBool("isDead", true);
-                StartCoroutine(KillOnAnimationEnd());
+                if (transform.position.y < other.gameObject.transform.position.y)
+                {
+                    isDead = true; 
+                    animator.SetBool("isDead", true);
+                    StartCoroutine(KillOnAnimationEnd());
+                }
             }
-        }
-        if(other.CompareTag("Bullet"))
-        {
-            currentHitpoints -= 40.0f;
-
-            if (currentHitpoints <= 0.0f)
+            if (other.CompareTag("Bullet"))
             {
-                animator.SetBool("isDead", true);
-                StartCoroutine(KillOnAnimationEnd());
-                GameManager.instance.IncrementEnemiesDefeated();
-                healthbar.UpdateHealthBar(0.0f);
-            }
-            else
-            {
-                healthbar.UpdateHealthBar(currentHitpoints / hitpoints);
+                currentHitpoints -= 40.0f;
+                if (currentHitpoints <= 0.0f)
+                {
+                    isDead = true;
+                    animator.SetBool("isDead", true);
+                    StartCoroutine(KillOnAnimationEnd());
+                    GameManager.instance.IncrementEnemiesDefeated();
+                    healthbar.UpdateHealthBar(0.0f);
+                }
+                else
+                {
+                    healthbar.UpdateHealthBar(currentHitpoints / hitpoints);
+                }
+                Destroy(other);
             }
         }
     }
