@@ -174,9 +174,10 @@ public class GameManager : MonoBehaviour
         AddPoints(1);
     }
 
-    public void AddKey(Color keyColor)
+    public void AddKey(Sprite sprite)
     {
-        keysTab[keysFound].color = keyColor;
+        keysTab[keysFound].sprite = sprite;
+        keysTab[keysFound].color = Color.white;
         keysFound += 1;
     }
 
