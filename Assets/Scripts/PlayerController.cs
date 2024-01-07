@@ -163,7 +163,12 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundLayer.value);
+        //Debug.DrawRay(transform.position - new Vector3(0.3f, 0.0f, 0.0f), transform.TransformDirection(Vector2.down) * rayLength);
+        //Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.down) * rayLength);
+        //Debug.DrawRay(transform.position + new Vector3(0.3f, 0.0f, 0.0f), transform.TransformDirection(Vector2.down) * rayLength);
+        return Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundLayer.value) ||
+            Physics2D.Raycast(transform.position - new Vector3(0.3f, 0.0f, 0.0f), Vector2.down, rayLength, groundLayer.value) ||
+            Physics2D.Raycast(transform.position + new Vector3(0.3f, 0.0f, 0.0f), Vector2.down, rayLength, groundLayer.value);
     }
 
     void Die()
