@@ -313,6 +313,7 @@ MonoBehaviour:
   - {fileID: 1864761730}
   - {fileID: 179336987}
   - {fileID: 1101289799}
+  cursorTexture: {fileID: 2800000, guid: 43f05acd28803ba4697cd1460e48e194, type: 3}
 --- !u!1 &50902033
 GameObject:
   m_ObjectHideFlags: 0
@@ -14671,6 +14672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpForce: 7
+  bulletPrefab: {fileID: 1180470834541397202, guid: 0f2829f52ad2fe0418f47fd114f612d7, type: 3}
+  shootSound: {fileID: 0}
   bonusSound: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   killEnemySound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   keySound: {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}

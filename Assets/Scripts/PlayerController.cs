@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement parameters")]
     [Range(0.01f, 20.0f)][SerializeField] private float moveSpeed = 0.1f;
     [Range(0.01f, 20.0f)][SerializeField] private float jumpForce = 6.0f;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private AudioClip shootSound;
     [SerializeField] private AudioClip bonusSound;
     [SerializeField] private AudioClip killEnemySound;
     [SerializeField] private AudioClip keySound;
@@ -117,9 +119,14 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(-1 * moveSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
             }
 
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
             }
         }
 
@@ -164,6 +171,17 @@ public class PlayerController : MonoBehaviour
     bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundLayer.value);
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        Vector3 cursorWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 shootVector = (cursorWorldPosition - transform.position).normalized;
+        float angle = Mathf.Atan2(shootVector.y, shootVector.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 225.0f);
+        bulletRb.AddForce(shootVector * 20.0f, ForceMode2D.Impulse);
     }
 
     void Die()
