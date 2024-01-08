@@ -60,7 +60,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Die();
+                if (other.GetComponent<EnemyController>().currentHitpoints > 0.0f)
+                {
+                    Die();
+                }
             }
         }
         if (other.CompareTag("Key"))
@@ -187,6 +190,7 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(shootVector.y, shootVector.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 225.0f);
         bulletRb.AddForce(shootVector * 20.0f, ForceMode2D.Impulse);
+        source.PlayOneShot(shootSound, AudioListener.volume);
     }
 
     void Die()
