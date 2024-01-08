@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        if (currentShootingCooldown > 0.0f) return;
+        if (currentShootingCooldown > 0.0f && !GameManager.instance.koszmarMode) return;
 
         currentShootingCooldown = shootingCooldown;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
