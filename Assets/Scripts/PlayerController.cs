@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip bonusSound;
     [SerializeField] private AudioClip killEnemySound;
     [SerializeField] private AudioClip keySound;
+    [SerializeField] private float shootingCooldown = 0.5f;
     private AudioSource source;
     private readonly float rayLength = 1.0f;
     public LayerMask groundLayer;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool isFalling = false;
     private FacingDirection facingDirection = FacingDirection.Right;
     Vector3 initialPosition;
+    private float currentShootingCooldown = 0.0f;
 
     private void Awake()
     {
@@ -142,6 +144,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isGrounded", IsGrounded());
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isFalling", isFalling);
+
+        currentShootingCooldown -= Time.deltaTime;
+        Debug.Log(currentShootingCooldown);
     }
 
     void Flip()
@@ -180,12 +185,14 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
+        if (currentShootingCooldown > 0.0f) return;
+
+        currentShootingCooldown = shootingCooldown;
+        Debug.Log(currentShootingCooldown);
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         Vector3 cursorWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 shootVector = (cursorWorldPosition - transform.position).normalized;
-        float angle = Mathf.Atan2(shootVector.y, shootVector.x) * Mathf.Rad2Deg;
-        bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 225.0f);
         bulletRb.AddForce(shootVector * 20.0f, ForceMode2D.Impulse);
     }
 

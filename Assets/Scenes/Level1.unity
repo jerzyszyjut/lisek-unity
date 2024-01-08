@@ -12037,8 +12037,13 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
+<<<<<<< Updated upstream
     m_Center: {x: -6.2904005, y: 12.088, z: 0}
     m_Extent: {x: 27.9264, y: 23.0248, z: 0}
+=======
+    m_Center: {x: -6.296749, y: 12.08695, z: 0}
+    m_Extent: {x: 27.92725, y: 23.02255, z: 0}
+>>>>>>> Stashed changes
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15105,6 +15110,7 @@ MonoBehaviour:
   bonusSound: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   killEnemySound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   keySound: {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}
+  shootingCooldown: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
