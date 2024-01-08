@@ -106,10 +106,10 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = newGameState;
 
-        ingameCanvas.enabled = currentGameState == GameState.GS_GAME;
-        pauseMenuCanvas.enabled = currentGameState == GameState.GS_PAUSEMENU;   
-        levelCompletedMenuCanvas.enabled = currentGameState == GameState.GS_LEVELCOMPLETED;
-        optionsMenuCanvas.enabled = currentGameState == GameState.GS_OPTIONS;   
+        ingameCanvas.gameObject.SetActive(currentGameState == GameState.GS_GAME);
+        pauseMenuCanvas.gameObject.SetActive(currentGameState == GameState.GS_PAUSEMENU);   
+        levelCompletedMenuCanvas.gameObject.SetActive(currentGameState == GameState.GS_LEVELCOMPLETED);
+        optionsMenuCanvas.gameObject.SetActive(currentGameState == GameState.GS_OPTIONS);
 
         if (currentGameState == GameState.GS_GAME)
         {
