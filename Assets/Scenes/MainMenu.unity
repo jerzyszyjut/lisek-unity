@@ -1089,6 +1089,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitGameButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 293553104}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnExitToDekstopButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6108352129150779538, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1504,7 +1532,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 293553104}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLevel2ButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6108352129150779538, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
       propertyPath: m_Pivot.x
@@ -1740,6 +1796,34 @@ PrefabInstance:
     - target: {fileID: 221445648408896536, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
       propertyPath: m_Name
       value: Level1Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 293553104}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLevel1ButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987125417291528100, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6108352129150779538, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
       propertyPath: m_Pivot.x

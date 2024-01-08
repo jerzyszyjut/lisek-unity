@@ -27,6 +27,12 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(StartGame("Level1"));
     }
 
+    public void OnLevel2ButtonPressed()
+    {
+        StartCoroutine(StartGame("Level2"));
+    }
+
+
     public void OnExitToDekstopButtonPressed()
     {
         #if UNITY_EDITOR
