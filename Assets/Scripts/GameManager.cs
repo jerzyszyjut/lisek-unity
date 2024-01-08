@@ -4,6 +4,8 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
+
 
 public enum GameState
 {
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
     public Image[] livesTab;
     public static GameManager instance;
     [SerializeField] private Texture2D cursorTexture;
+    [SerializeField] public GameObject player;
+    [SerializeField] private Light2D globalLight;
     private Vector2 cursorHotsport;
     private int score = 0;
     private int keysFound = 0;
@@ -37,6 +41,9 @@ public class GameManager : MonoBehaviour
     private int enemiesDefeated = 0;
     private float timer = 0;
     private const string keyHighScore = "HighScoreLevel1";
+    public bool koszmarMode = false;
+    private string targetSequence = "qbale";
+    private int currentSequenceIndex = 0;
 
     void Awake()
     {
@@ -74,6 +81,25 @@ public class GameManager : MonoBehaviour
             timer += Time.deltaTime;
         }
         UpdateCounters();
+
+        if (Input.anyKeyDown)
+        {
+            if (Input.GetKeyDown(targetSequence[currentSequenceIndex].ToString()))
+            {
+                currentSequenceIndex++;
+
+                if (currentSequenceIndex == targetSequence.Length)
+                {
+                    if (koszmarMode) DisableKoszmarMode();
+                    else EnableKoszmarMode();
+                    currentSequenceIndex = 0;
+                }
+            }
+            else
+            {
+                currentSequenceIndex = 0;
+            }
+        }
     }
 
     public void SetGameState(GameState newGameState)
@@ -134,6 +160,18 @@ public class GameManager : MonoBehaviour
         cursorHotsport = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         SetGameState(GameState.GS_GAME);
         Time.timeScale = 1.0f;
+    }
+
+    public void EnableKoszmarMode()
+    {
+        koszmarMode = true;
+        globalLight.intensity = 0.0f;
+    }
+
+    public void DisableKoszmarMode()
+    {
+        koszmarMode = false;
+        globalLight.intensity = 1.0f;
     }
 
     public void LevelCompleted()

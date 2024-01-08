@@ -8,14 +8,20 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float moveRange = 1.0f;
     [SerializeField] private float hitpoints = 100.0f;
     [SerializeField] HealthBarController healthbar;
+    [SerializeField] Sprite[] koszmary;
+    [SerializeField] GameObject koszmarPlaceholder;
+    [SerializeField] bool aiOn = false;
     public float currentHitpoints = 100.0f;
     private Animator animator;
     private FacingDirection facingDirection = FacingDirection.Left;
     private float startPositionX;
+    
 
     void Start()
     {
         startPositionX = transform.position.x;
+        Sprite randomKoszmar = koszmary[Random.Range(0, koszmary.Length)];
+        koszmarPlaceholder.GetComponent<SpriteRenderer>().sprite = randomKoszmar;
     }
 
     private void Awake()
@@ -25,6 +31,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        koszmarPlaceholder.SetActive(GameManager.instance.koszmarMode);
+        if (aiOn) return;
         float currentPositionX = transform.position.x;
         if (currentPositionX < startPositionX - moveRange && facingDirection == FacingDirection.Left)
         {
@@ -34,6 +42,7 @@ public class EnemyController : MonoBehaviour
         {
             Flip();
         }
+
 
         Vector3 movement;
 

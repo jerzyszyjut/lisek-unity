@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private GameObject player;
     [SerializeField] private float spawnInterval = 5.0f;
     private float currentSpawnCooldown;
 
@@ -24,7 +23,7 @@ public class SpawnerController : MonoBehaviour
         {
             currentSpawnCooldown = spawnInterval;
             GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            enemy.GetComponent<Pathfinding.AIDestinationSetter>().target = player.transform;
+            enemy.GetComponent<Pathfinding.AIDestinationSetter>().target = GameManager.instance.player.transform;
         }
     }
 }
