@@ -175,7 +175,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1176,6 +1177,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Exit game
       objectReference: {fileID: 0}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5005707551052343061, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1581,6 +1594,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5005707551052343061, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1602,6 +1627,22 @@ PrefabInstance:
     - target: {fileID: 3999971098032618410, guid: b5939bc5b17b38e428ca699ce9973979, type: 3}
       propertyPath: m_Name
       value: Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057048845286705981, guid: b5939bc5b17b38e428ca699ce9973979, type: 3}
+      propertyPath: m_text
+      value: LISEK vs III semestr
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057048845286705981, guid: b5939bc5b17b38e428ca699ce9973979, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5005707551052343061, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 7057048845286705981, guid: b5939bc5b17b38e428ca699ce9973979, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057048845286705981, guid: b5939bc5b17b38e428ca699ce9973979, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8839940015025023273, guid: b5939bc5b17b38e428ca699ce9973979, type: 3}
       propertyPath: m_Pivot.x
@@ -1778,6 +1819,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6108352129150779538, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5005707551052343061, guid: 6b949c79bda4e96498af1664803ea25f, type: 2}
+    - target: {fileID: 8978817606860642232, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
