@@ -149,7 +149,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isFalling", isFalling);
 
         currentShootingCooldown -= Time.deltaTime;
-        Debug.Log(currentShootingCooldown);
     }
 
     void Flip()

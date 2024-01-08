@@ -110,6 +110,17 @@ public class GameManager : MonoBehaviour
                 levelCompletedHighScoreText.text = string.Format("{0:0000}", highScore);
             }
         }
+
+        if (currentGameState == GameState.GS_GAME_OVER)
+        {
+            StartCoroutine(ReturnToMainMenu());
+        }
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(3.0f);
+        OnReturnToMainMenuButtonClicked();
     }
 
     public void PauseMenu()
