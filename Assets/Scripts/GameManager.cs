@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1.0f;
         InGame();
         instance = this;
         foreach (Image key in keysTab)
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.GS_LEVELCOMPLETED)
         {
+            Time.timeScale = 0.0f;
             Scene currentScene = SceneManager.GetActiveScene();
             if(currentScene.name == "Level1")
             {

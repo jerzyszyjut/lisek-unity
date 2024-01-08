@@ -191,7 +191,6 @@ public class PlayerController : MonoBehaviour
         if (currentShootingCooldown > 0.0f) return;
 
         currentShootingCooldown = shootingCooldown;
-        Debug.Log(currentShootingCooldown);
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         Vector3 cursorWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
