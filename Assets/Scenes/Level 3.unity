@@ -957,19 +957,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 485488986470788375, guid: 48788ce91e1376548b30d350fef417bf, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 19.150002
-      objectReference: {fileID: 0}
-    - target: {fileID: 485488986470788375, guid: 48788ce91e1376548b30d350fef417bf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 28.789999
-=======
       value: 33.88
       objectReference: {fileID: 0}
     - target: {fileID: 485488986470788375, guid: 48788ce91e1376548b30d350fef417bf, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.16
->>>>>>> f3c02bb (Stable version of the level)
       objectReference: {fileID: 0}
     - target: {fileID: 485488986470788375, guid: 48788ce91e1376548b30d350fef417bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3759,8 +3751,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
-=======
   - first: {x: 68, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -3831,7 +3821,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
->>>>>>> f3c02bb (Stable version of the level)
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -4020,11 +4009,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300200, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   m_TileMatrixArray:
-<<<<<<< HEAD
-  - m_RefCount: 149
-=======
   - m_RefCount: 223
->>>>>>> f3c02bb (Stable version of the level)
     m_Data:
       e00: 1
       e01: 0
@@ -4079,11 +4064,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-<<<<<<< HEAD
-  - m_RefCount: 181
-=======
   - m_RefCount: 255
->>>>>>> f3c02bb (Stable version of the level)
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -4173,8 +4154,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
-<<<<<<< HEAD
-=======
 --- !u!1001 &332962387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4244,7 +4223,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc43367fdc477a46a8dc37bedd234d3, type: 3}
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!1 &335575219
 GameObject:
   m_ObjectHideFlags: 0
@@ -4688,8 +4666,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
   m_PrefabInstance: {fileID: 134677548}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-=======
   m_GameObject: {fileID: 397124414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -4751,7 +4727,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!1 &418573703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,19 +4912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 40.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.98
-=======
       value: 33.9
       objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.49
->>>>>>> f3c02bb (Stable version of the level)
       objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5058,11 +5025,7 @@ Transform:
   m_GameObject: {fileID: 486120944}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 22, y: 6, z: 0}
-=======
   m_LocalPosition: {x: 48.7, y: 11.5, z: 0}
->>>>>>> f3c02bb (Stable version of the level)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5212,11 +5175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1723320515730895665, guid: 5bc43367fdc477a46a8dc37bedd234d3, type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
-      value: 25.77
-=======
       value: 4.69
->>>>>>> f3c02bb (Stable version of the level)
       objectReference: {fileID: 0}
     - target: {fileID: 1723320515730895665, guid: 5bc43367fdc477a46a8dc37bedd234d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7610,11 +7569,7 @@ Transform:
   m_GameObject: {fileID: 968468559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -17.5, y: 14.3, z: 0}
-=======
   m_LocalPosition: {x: 39.67, y: 13.37, z: 0}
->>>>>>> f3c02bb (Stable version of the level)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7703,14 +7658,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7263979198082161850, guid: caa09eea4da67254d9589538aaf02c8b, type: 3}
   m_PrefabInstance: {fileID: 978176258}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
---- !u!4 &1013162936 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
-  m_PrefabInstance: {fileID: 204779000}
-  m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!1 &1029199115
 GameObject:
   m_ObjectHideFlags: 0
@@ -8077,11 +8024,7 @@ Transform:
   m_GameObject: {fileID: 1093562625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 19, y: 4, z: 0}
-=======
   m_LocalPosition: {x: 48.713, y: 14.01, z: 0}
->>>>>>> f3c02bb (Stable version of the level)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14776,13 +14719,8 @@ Tilemap:
     m_Data: {fileID: 21300230, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 25
     m_Data: {fileID: 21300214, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-<<<<<<< HEAD
-  - m_RefCount: 2
-    m_Data: {fileID: 21300238, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-=======
   - m_RefCount: 1
     m_Data: {fileID: 21300248, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
->>>>>>> f3c02bb (Stable version of the level)
   - m_RefCount: 2
     m_Data: {fileID: 21300188, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
@@ -14790,13 +14728,8 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 21300186, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
-<<<<<<< HEAD
-    m_Data: {fileID: 21300218, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  - m_RefCount: 1
-=======
     m_Data: {fileID: 21300244, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 4
->>>>>>> f3c02bb (Stable version of the level)
     m_Data: {fileID: 21300098, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300238, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
@@ -14805,11 +14738,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300218, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   m_TileMatrixArray:
-<<<<<<< HEAD
-  - m_RefCount: 571
-=======
   - m_RefCount: 588
->>>>>>> f3c02bb (Stable version of the level)
     m_Data:
       e00: 1
       e01: 0
@@ -14846,11 +14775,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-<<<<<<< HEAD
-  - m_RefCount: 572
-=======
   - m_RefCount: 592
->>>>>>> f3c02bb (Stable version of the level)
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -15058,8 +14983,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 206403803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1239672832
 GameObject:
   m_ObjectHideFlags: 0
@@ -15206,7 +15129,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2155421739116233541, guid: b6b195dab136852d694e1dd17696b47b, type: 3}
   m_PrefabInstance: {fileID: 1244176535}
   m_PrefabAsset: {fileID: 0}
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!1 &1256537141
 GameObject:
   m_ObjectHideFlags: 0
@@ -15995,19 +15917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 42.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.04
-=======
       value: 41.58
       objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 11.56
->>>>>>> f3c02bb (Stable version of the level)
       objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: d02adc81f24a7b743996e3682ca9973b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16143,19 +16057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7357352300168599760, guid: 916be16455db37c47907821035cf1ed4, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 76.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7357352300168599760, guid: 916be16455db37c47907821035cf1ed4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.85
-=======
       value: 65.67
       objectReference: {fileID: 0}
     - target: {fileID: 7357352300168599760, guid: 916be16455db37c47907821035cf1ed4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.99
->>>>>>> f3c02bb (Stable version of the level)
       objectReference: {fileID: 0}
     - target: {fileID: 7357352300168599760, guid: 916be16455db37c47907821035cf1ed4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16470,40 +16376,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a43e6b5d316e8674681a93e0797c2fe7, type: 3}
-<<<<<<< HEAD
---- !u!1 &1599921476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1599921477}
-  m_Layer: 0
-  m_Name: Waypoint5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1599921477
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599921476}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25, y: 7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 206403803}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!1 &1601156978
 GameObject:
   m_ObjectHideFlags: 0
@@ -16825,13 +16697,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-<<<<<<< HEAD
-    m_Center: {x: 21.4895, y: 11.8954, z: 0}
-    m_Extent: {x: 55.705498, y: 23.2151, z: 0}
-=======
     m_Center: {x: 21.3407, y: 11.0753, z: 0}
     m_Extent: {x: 55.564903, y: 24.0375, z: 0}
->>>>>>> f3c02bb (Stable version of the level)
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17421,11 +17288,7 @@ Transform:
   m_GameObject: {fileID: 1778364061}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -9.7, y: 21.7, z: 0}
-=======
   m_LocalPosition: {x: 35.92, y: 13.28, z: 0}
->>>>>>> f3c02bb (Stable version of the level)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17498,8 +17361,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 206403803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &1833383593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17562,7 +17423,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9139011747630765855, guid: 7c2de95007c5cf9fea2e6b297f339690, type: 3}
   m_PrefabInstance: {fileID: 1833383593}
   m_PrefabAsset: {fileID: 0}
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!1001 &1845502076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17819,19 +17679,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1242227268526043035, guid: 5cdc519f82bbdf6429b7b769128cb03c, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 31.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1242227268526043035, guid: 5cdc519f82bbdf6429b7b769128cb03c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.8
-=======
       value: 48.73
       objectReference: {fileID: 0}
     - target: {fileID: 1242227268526043035, guid: 5cdc519f82bbdf6429b7b769128cb03c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 14.84
->>>>>>> f3c02bb (Stable version of the level)
       objectReference: {fileID: 0}
     - target: {fileID: 1242227268526043035, guid: 5cdc519f82bbdf6429b7b769128cb03c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18634,11 +18486,7 @@ Transform:
   m_GameObject: {fileID: 2041525191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -4.1, y: -2.96, z: 0}
-=======
   m_LocalPosition: {x: -3.95, y: -3.11, z: 0}
->>>>>>> f3c02bb (Stable version of the level)
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18986,8 +18834,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3279337708512964033, guid: 2919aa09c4ad21c4498251eac8a28f5f, type: 3}
   m_PrefabInstance: {fileID: 2079765628}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &2087146804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19050,7 +18896,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2155421739116233541, guid: b6b195dab136852d694e1dd17696b47b, type: 3}
   m_PrefabInstance: {fileID: 2087146804}
   m_PrefabAsset: {fileID: 0}
->>>>>>> f3c02bb (Stable version of the level)
 --- !u!4 &2090722237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485488986470788375, guid: 48788ce91e1376548b30d350fef417bf, type: 3}
