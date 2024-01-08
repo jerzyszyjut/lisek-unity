@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float moveRange = 1.0f;
     [SerializeField] private float hitpoints = 100.0f;
     [SerializeField] HealthBarController healthbar;
-    private float currentHitpoints = 100.0f;
+    public float currentHitpoints = 100.0f;
     private Animator animator;
     private FacingDirection facingDirection = FacingDirection.Left;
     private float startPositionX;

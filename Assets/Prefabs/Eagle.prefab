@@ -78,7 +78,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 7192299143472873600}
   m_FillRect: {fileID: 5451722680649223039}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   moveRange: 1
   hitpoints: 100
   healthbar: {fileID: 632118169944018919}
+  currentHitpoints: 100
 --- !u!114 &632118169944018919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2336186390178928428
 CanvasRenderer:
