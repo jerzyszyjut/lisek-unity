@@ -62,7 +62,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Die();
+                if (other.GetComponent<EnemyController>().currentHitpoints > 0.0f)
+                {
+                    Die();
+                }
             }
         }
         if (other.CompareTag("Key"))
@@ -194,6 +197,7 @@ public class PlayerController : MonoBehaviour
         Vector3 cursorWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 shootVector = (cursorWorldPosition - transform.position).normalized;
         bulletRb.AddForce(shootVector * 20.0f, ForceMode2D.Impulse);
+        source.PlayOneShot(shootSound, AudioListener.volume);
     }
 
     void Die()
