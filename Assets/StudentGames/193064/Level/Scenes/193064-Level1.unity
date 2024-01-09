@@ -17071,8 +17071,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 21.3377, y: 11.074149, z: 0}
-    m_Extent: {x: 55.5539, y: 24.035149, z: 0}
+    m_Center: {x: 21.34215, y: 11.069651, z: 0}
+    m_Extent: {x: 55.567352, y: 24.02725, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17489,8 +17489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_AssetsPPU: 16
-  m_RefResolutionX: 342
-  m_RefResolutionY: 170
+  m_RefResolutionX: 360
+  m_RefResolutionY: 200
   m_CropFrame: 0
   m_GridSnapping: 0
   m_FilterMode: 0
@@ -17516,7 +17516,7 @@ MonoBehaviour:
   xSmooth: 8
   ySmooth: 8
   maxXAndY: {x: 69, y: 20}
-  minXAndY: {x: -3, y: -5}
+  minXAndY: {x: -2, y: -5}
 --- !u!114 &1764616878
 MonoBehaviour:
   m_ObjectHideFlags: 0
