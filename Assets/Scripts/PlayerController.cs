@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Bonus"))
         {
             other.gameObject.SetActive(false);
-            GameManager.instance.AddPoints(1);
+            GameManager.instance.AddPoints(10);
             source.PlayOneShot(bonusSound, AudioListener.volume);
         }
         if (other.CompareTag("Exit"))

@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0.0f;
             Scene currentScene = SceneManager.GetActiveScene();
-            if(currentScene.name == "Level1")
+            if(currentScene.name == "Level1" || currentScene.name == "Level2")
             {
                 int highScore = PlayerPrefs.GetInt(keyHighScore);
                 if (highScore < score)
