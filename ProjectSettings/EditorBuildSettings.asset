@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/StudentGames/193064/Level/Scenes/MainMenu.unity
     guid: cc8ae42c04a58574b8bc792e5dc639d0
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/StudentGames/193064/Level/Scenes/Level2.unity
     guid: bd81d18510c8f8f49a671780a8546658
+  - enabled: 1
+    path: Assets/StudentGames/193064/Level/Scenes/Level1.unity
+    guid: 46b339290a0796be9bd489e43d7af32e
   m_configObjects: {}
