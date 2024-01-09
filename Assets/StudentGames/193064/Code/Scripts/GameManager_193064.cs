@@ -261,8 +261,8 @@ namespace _193064
             }
             else
             {
-                sceneIndex = SceneUtility.GetBuildIndexByScenePath("Assets/StudentGames/193064/Level/Scenes/MainMenu");
-                SceneManager.LoadScene("MainMenu");
+                sceneIndex = SceneUtility.GetBuildIndexByScenePath("StudentGames/193064/Level/Scenes/193064-MainMenu");
+                SceneManager.LoadScene(sceneIndex);
             }
         }
 

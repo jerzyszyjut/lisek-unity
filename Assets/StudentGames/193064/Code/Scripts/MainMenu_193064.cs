@@ -26,12 +26,12 @@ namespace _193064
 
         public void OnLevel1ButtonPressed()
         {
-            StartCoroutine(StartGame("Level1"));
+            StartCoroutine(StartGame("193064-Level1"));
         }
 
         public void OnLevel2ButtonPressed()
         {
-            StartCoroutine(StartGame("Level2"));
+            StartCoroutine(StartGame("193064-Level1"));
         }
 
 
