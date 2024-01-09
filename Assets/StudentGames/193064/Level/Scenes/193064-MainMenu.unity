@@ -829,6 +829,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 1764262041898442050, guid: 996652a4106a87b4cbe46601749ad5f1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764262041898442050, guid: 996652a4106a87b4cbe46601749ad5f1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764262041898442050, guid: 996652a4106a87b4cbe46601749ad5f1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4610093499252444314, guid: 996652a4106a87b4cbe46601749ad5f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
