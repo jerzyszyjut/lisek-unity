@@ -124,18 +124,14 @@ namespace _193064
             if (currentGameState == GameState.GS_LEVELCOMPLETED)
             {
                 Time.timeScale = 0.0f;
-                Scene currentScene = SceneManager.GetActiveScene();
-                if (currentScene.name == "Level1" || currentScene.name == "Level2")
+                int highScore = PlayerPrefs.GetInt(keyHighScore);
+                if (highScore < score)
                 {
-                    int highScore = PlayerPrefs.GetInt(keyHighScore);
-                    if (highScore < score)
-                    {
-                        highScore = score;
-                        PlayerPrefs.SetInt(keyHighScore, highScore);
-                    }
-                    levelCompletedScoreText.text = string.Format("{0:0000}", score);
-                    levelCompletedHighScoreText.text = string.Format("{0:0000}", highScore);
+                    highScore = score;
+                    PlayerPrefs.SetInt(keyHighScore, highScore);
                 }
+                levelCompletedScoreText.text = string.Format("{0:0000}", score);
+                levelCompletedHighScoreText.text = string.Format("{0:0000}", highScore);
             }
 
             if (currentGameState == GameState.GS_GAME_OVER)
