@@ -1,2 +1,3 @@
-# 2D-Platformer-ABerkowska-JSzyjut-MFydrych
-Second year of studing in IT class. Its a group project about 2D game made in unity
+# Lisek unity
+This is a project that we did in group of 3 for the game competiton during our second year of studing in IT class. It is a classical type platform game highly manual with pathfind enemies and many easter eggs regarding our studies.
+
